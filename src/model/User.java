@@ -64,12 +64,12 @@ public class User {
     public void setRole(int role) {
         this.role = role;
     }
-    public User getFetch(int userId){
-        String query = "SELECT * FROM public.user WHERE id = ?";
+    public User getFetch(String username){
+        String query = "SELECT * FROM public.user WHERE username = ?";
         User user = null;
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
-            pr.setInt(1,userId);
+            pr.setString(1,username);
             ResultSet rs = pr.executeQuery();
             if (rs.next()){
                 int ID = rs.getInt("id");
@@ -85,6 +85,28 @@ public class User {
         }
         return user;
     }
+    public User getFetch(int id){
+        String query = "SELECT * FROM public.user WHERE id = ?";
+        User user = null;
+        try {
+            PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
+            pr.setInt(1,id);
+            ResultSet rs = pr.executeQuery();
+            if (rs.next()){
+                int ID = rs.getInt("id");
+                String NAME = rs.getString("name");
+                String USERNAME = rs.getString("username");
+                String PASSWORD = rs.getString("password");
+                int ROLE = rs.getInt("role");
+                user = new User(ID,NAME,USERNAME,PASSWORD,ROLE);
+            }
+            pr.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
+    }
+
 
     public User getFetch(String username,String password){
         String query = "SELECT * FROM public.user WHERE username = ? AND password = ?";
@@ -131,6 +153,27 @@ public class User {
             throw new RuntimeException(e);
         }
         return userList;
+    }
+    public ArrayList<User> getList(int role){
+        String query = "SELECT * FROM public.user WHERE role = "+role;
+        ArrayList<User> userList = new ArrayList<>();
+        User user = null;
+    try {
+        Statement statement = DBConnector.getInstance().createStatement();
+        ResultSet rs = statement.executeQuery(query);
+        while (rs.next()){
+            int ID = rs.getInt("id");
+            String NAME = rs.getString("name");
+            String USERNAME = rs.getString("username");
+            String PASSWORD = rs.getString("password");
+            int ROLE = rs.getInt("role");
+            user = new User(ID,NAME,USERNAME,PASSWORD,ROLE);
+            userList.add(user);
+        }
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+    return userList;
     }
     public ArrayList<User> getListByRole (int role){
         String query = "SELECT * FROM public.user WHERE role = ?";

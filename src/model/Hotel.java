@@ -75,7 +75,7 @@ public class Hotel {
     public void setStar(String star) {
         this.star = star;
     }
-    ArrayList<Hotel> getList(){
+    public ArrayList<Hotel> getList(){
         String qery= "SELECT * FROM public.hotel";
         ArrayList<Hotel> hotelList = new ArrayList<>();
         Hotel hotel;

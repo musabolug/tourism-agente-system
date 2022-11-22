@@ -5,7 +5,6 @@ import helper.DBConnector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class HotelFacility {
@@ -73,14 +72,13 @@ public class HotelFacility {
         return isDeleted;
     }
 
-    public boolean updateFacility(int id, int hotelId,String facilityName){
-        String query = "UPDATE public.hotel_facility SET (id,hotel_id,facility_name) VALUES (?,?,?)";
+    public boolean updateFacility(int id,String facilityName){
+        String query = "UPDATE public.hotel_facility SET (id,facility_name) VALUES (?,?)";
         boolean isUpdated;
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
             pr.setInt(1,id);
-            pr.setInt(2,hotelId);
-            pr.setString(3,facilityName);
+            pr.setString(2,facilityName);
             isUpdated = pr.executeUpdate() != -1;
             pr.close();
         } catch (SQLException e) {
@@ -128,7 +126,7 @@ public class HotelFacility {
         }
         return facility;
     }
-    public boolean DeleteAllFAcilities(int hotelId){
+    public boolean deleteAllFAcilities(int hotelId){
         String query = "DELETE FROM public.hotel_facility WHERE hotel_id =?";
         boolean isAllDeleted;
         try {

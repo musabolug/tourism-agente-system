@@ -65,7 +65,7 @@ public class HotelRoomTypeController {
         if (user.getRole() == Role.MANAGER.getRole()){
             if (getHotelRoomType().getFetch(roomTypeId) != null){
                 if (getHotelRoomType().deleteHotelRoomType(roomTypeId)){
-                    getHotelRoomFeatureController.deleteAllRoomFeatureOfHotelRoomType(roomTypeId);
+                    getRoomFeatureController().deleteAllRoomFeatureOfHotelRoomType(roomTypeId);
                     System.out.println("Room type deleted");
                     return true;
                 }else{
@@ -97,7 +97,7 @@ public class HotelRoomTypeController {
         }
         return false;
     }
-    public ArrayList<HotelRoomType> getAll(int HotelId){
+    public ArrayList<HotelRoomType> getAll(int hotelId){
         return getHotelRoomType().getList(hotelId);
     }
 }
