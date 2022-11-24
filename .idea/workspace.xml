@@ -4,20 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fb35a68-ee5e-4e1a-84ce-4d0cc8da0ffa" name="Changes" comment="Controller classes">
+    <list default="true" id="6fb35a68-ee5e-4e1a-84ce-4d0cc8da0ffa" name="Changes" comment="Controller classes are finished and also started view">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/FacilityFeaturesGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/FacilityFeaturesGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/HotelGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/HotelGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/indir.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/HostelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/HostelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/HotelFacilityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/HotelFacilityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/HotelRoomTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/HotelRoomTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/HotelSeasonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/HotelSeasonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/RoomFeatureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RoomFeatureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/CustomerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/HostelController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/HotelController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/HotelFacilityController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/HotelRoomTypeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/HotelSeasonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ReservationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/RoomFeatureController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/SearchController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helper/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/helper/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/HostelType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/HostelType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Hotel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/HotelFacility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/HotelFacility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/HotelSeason.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/HotelSeason.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/RoomFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/RoomFeature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Search.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/LoginGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/LoginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LoginGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,10 +62,17 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/musab/IdeaProjects/Java102/src/com"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/musab/IdeaProjects/tourism-agente-system/src/view",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\musab\IdeaProjects\tourism-agente-system\src\view" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.LoginGUI">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="tourism-agente-system" />
@@ -58,8 +80,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.LoginGUI" />
+      <module name="tourism-agente-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LoginGUI" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
@@ -87,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668970006571</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Controller classes are finished and also started view">
+      <created>1669102323294</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669102323294</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -104,6 +147,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Started project" />
     <MESSAGE value="Controller classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controller classes" />
+    <MESSAGE value="Controller classes are finished and also started view" />
+    <option name="LAST_COMMIT_MESSAGE" value="Controller classes are finished and also started view" />
   </component>
 </project>

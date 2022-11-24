@@ -2,35 +2,37 @@ package model;
 
 import helper.DBConnector;
 
-import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class HostelType {
-    private int id;
     private int hotelId;
-    private  String hostelType;
-    private int price;
+    private boolean ultraAllInclusive;
+    private boolean allInclusive;
+    private boolean roomBreakfast;
+    private boolean fullPension;
+    private boolean halfBoard;
+    private boolean onyBad;
+    private boolean noAlcoholFullCredit;
 
     public HostelType(){
 
     }
-    public HostelType(int id, int hotelId, String hostelType, int price){
-        this.id = id;
+    public HostelType( int hotelId, boolean ultraAllInclusive,boolean allInclusive, boolean roomBreakfast, boolean fullPension,boolean halfBoard,boolean onyBad, boolean noAlcoholFullCredit){
+
         this.hotelId = hotelId;
-        this.hostelType = hostelType;
-        this.price = price;
+        this.ultraAllInclusive = ultraAllInclusive;
+        this.allInclusive = allInclusive;
+        this.roomBreakfast = roomBreakfast;
+        this.fullPension = fullPension;
+        this.halfBoard = halfBoard;
+        this.onyBad = onyBad;
+        this.noAlcoholFullCredit = noAlcoholFullCredit;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getHotelId() {
         return hotelId;
@@ -40,73 +42,99 @@ public class HostelType {
         this.hotelId = hotelId;
     }
 
-    public String getHostelType() {
-        return hostelType;
+    public boolean isUltraAllInclusive() {
+        return ultraAllInclusive;
     }
 
-    public void setHostelType(String hostelType) {
-        this.hostelType = hostelType;
+    public void setUltraAllInclusive(boolean ultraAllInclusive) {
+        this.ultraAllInclusive = ultraAllInclusive;
     }
 
-    public int getPrice() {
-        return price;
+    public boolean isAllInclusive() {
+        return allInclusive;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setAllInclusive(boolean allInclusive) {
+        this.allInclusive = allInclusive;
     }
-    public boolean addHostelType(int hotelId,String hostelType,int price){
-        String query ="INSERT INTO public.hotel_hostel_type (hostel_id,hostel_type,price) VALUES (?,?,?)";
+
+    public boolean isRoomBreakfast() {
+        return roomBreakfast;
+    }
+
+    public void setRoomBreakfast(boolean roomBreakfast) {
+        this.roomBreakfast = roomBreakfast;
+    }
+
+    public boolean isFullPension() {
+        return fullPension;
+    }
+
+    public void setFullPension(boolean fullPension) {
+        this.fullPension = fullPension;
+    }
+
+    public boolean isHalfBoard() {
+        return halfBoard;
+    }
+
+    public void setHalfBoard(boolean halfBoard) {
+        this.halfBoard = halfBoard;
+    }
+
+    public boolean isOnyBad() {
+        return onyBad;
+    }
+
+    public void setOnyBad(boolean onyBad) {
+        this.onyBad = onyBad;
+    }
+
+    public boolean isNoAlcoholFullCredit() {
+        return noAlcoholFullCredit;
+    }
+
+    public void setNoAlcoholFullCredit(boolean noAlcoholFullCredit) {
+        this.noAlcoholFullCredit = noAlcoholFullCredit;
+    }
+
+    public boolean addHostelType(int hotelId, boolean ultraAllInclusive,boolean allInclusive, boolean roomBreakfast, boolean fullPension,boolean halfBoard,boolean onyBad, boolean noAlcoholFullCredit ){
+        String query ="INSERT INTO public.hotel_hostel_type (hostel_id,ultra_All,all_inclusive,room_breakfast,full_pension,half_board,only_bad,no_alcohol) VALUES (?,?,?,?,?,?,?,?)";
         boolean isAdd;
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
             pr.setInt(1,hotelId);
-            pr.setString(2,hostelType);
-            pr.setInt(3,price);
+            pr.setBoolean(2,ultraAllInclusive);
+            pr.setBoolean(3,allInclusive);
+            pr.setBoolean(4,roomBreakfast);
+            pr.setBoolean(5,fullPension);
+            pr.setBoolean(6,halfBoard);
+            pr.setBoolean(7,onyBad);
+            pr.setBoolean(8,noAlcoholFullCredit);
             isAdd = pr.executeUpdate() != -1;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return isAdd;
     }
-    public HostelType getFetchHostelType(int hotelId, String hostelType){
-        String query = "SELECT * FROM public.hotel_hostel_type WHERE hostel_id = ? AND hostel_type = ?";
-        HostelType hType = null;
 
-        try {
-            PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
-            pr.setInt(1,hotelId);
-            pr.setString(2,hostelType);
-            ResultSet rs = pr.executeQuery();
-            if (rs.next()){
-                int ID = rs.getInt("id");
-                int HOTEL_ID = rs.getInt("hotel_id");
-                String HOSTEL_TYPE = rs.getString("hostel_type");
-                int PRICE = rs.getInt("price");
-                hType = new HostelType(ID,HOTEL_ID,HOSTEL_TYPE,PRICE);
-            }
-            rs.close();
-            pr.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return hType;
-    }
     public HostelType getFetchHostelType(int hostelTypeId){
-        String query = "SELECT * FROM public.hotel_hostel_type WHERE id = ?";
-        HostelType hType = null;
+        String query = "SELECT * FROM public.hotel_hostel_type WHERE hotel_id= ?";
+        HostelType hType = new HostelType();
 
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
             pr.setInt(1,hostelTypeId);
             ResultSet rs = pr.executeQuery();
-            if (rs.next()){
-                int ID = rs.getInt("id");
-                int HOTEL_ID = rs.getInt("hotel_id");
-                String HOSTEL_TYPE = rs.getString("hostel_type");
-                int PRICE = rs.getInt("price");
-                hType = new HostelType(ID,HOTEL_ID,HOSTEL_TYPE,PRICE);
-            }
+            rs.next();
+            hType.setHotelId(rs.getInt("hotel_id"));
+            hType.setUltraAllInclusive(rs.getBoolean("ultra_all"));
+            hType.setAllInclusive(rs.getBoolean("all_inclusive"));
+            hType.setRoomBreakfast(rs.getBoolean("room_breakfast"));
+            hType.setFullPension(rs.getBoolean("full_pension"));
+            hType.setHalfBoard(rs.getBoolean("half_board"));
+            hType.setOnyBad(rs.getBoolean("only_bad"));
+            hType.setNoAlcoholFullCredit(rs.getBoolean("no_alcohol"));
             rs.close();
             pr.close();
         } catch (SQLException e) {
@@ -114,16 +142,20 @@ public class HostelType {
         }
         return hType;
     }
-    public boolean updateHostelType(int id,String hostelType,int price){
-        String query = "UPDATE public.hotel_hostel_type SET hostel_type = ?, price = ? WHERE id =?";
+    public boolean updateHostelType(int hotelId, boolean ultraAllInclusive,boolean allInclusive, boolean roomBreakfast, boolean fullPension,boolean halfBoard,boolean onyBad, boolean noAlcoholFullCredit){
+        String query ="INSERT INTO public.hotel_hostel_type (hostel_id,ultra_All,all_inclusive,room_breakfast,full_pension,half_board,only_bad,no_alcohol) VALUES (?,?,?,?,?,?,?,?)";
         boolean isupdate;
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
-            pr.setString(1,hostelType);
-            pr.setInt(2,price);
-            pr.setInt(3,id);
+            pr.setInt(1,hotelId);
+            pr.setBoolean(2,ultraAllInclusive);
+            pr.setBoolean(3,allInclusive);
+            pr.setBoolean(4,roomBreakfast);
+            pr.setBoolean(5,fullPension);
+            pr.setBoolean(6,halfBoard);
+            pr.setBoolean(7,onyBad);
+            pr.setBoolean(8,noAlcoholFullCredit);
             isupdate = pr.executeUpdate() != -1;
-            pr.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -131,7 +163,7 @@ public class HostelType {
     }
 
     public boolean deleteHostelType(int hostelTypeId){
-        String query = "DELETE FROM public hotel_hostel_type WHERE id =?";
+        String query = "DELETE FROM public hotel_hostel_type WHERE hotel_id =?";
         boolean isDelete;
 
         try {
@@ -159,21 +191,24 @@ public class HostelType {
         return isDelete;
     }
     public ArrayList<HostelType> getList(int hotelId){
-    String query = "SELECT * FROM public.hotel_hostel_type WHERE hotel_id = ?";
+        String query = "SELECT * FROM public.hotel_hostel_type WHERE hotel_id= ?";
     ArrayList<HostelType> hostelTypeList = new ArrayList<>();
-    HostelType hostelType;
+    HostelType hType = new HostelType();
 
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
             pr.setInt(1,hotelId);
             ResultSet rs = pr.executeQuery();
             while (rs.next()){
-                int ID = rs.getInt("id");
-                int HOTEL_ID = rs.getInt("hotel_id");
-                String HOSTEL_TYPE = rs.getString("hostel_type");
-                int PRICE = rs.getInt("price");
-                hostelType = new HostelType(ID,HOTEL_ID,HOSTEL_TYPE,PRICE);
-                hostelTypeList.add(hostelType);
+                hType.setHotelId(rs.getInt("hotel_id"));
+                hType.setUltraAllInclusive(rs.getBoolean("ultra_all"));
+                hType.setAllInclusive(rs.getBoolean("all_inclusive"));
+                hType.setRoomBreakfast(rs.getBoolean("room_breakfast"));
+                hType.setFullPension(rs.getBoolean("full_pension"));
+                hType.setHalfBoard(rs.getBoolean("half_board"));
+                hType.setOnyBad(rs.getBoolean("only_bad"));
+                hType.setNoAlcoholFullCredit(rs.getBoolean("no_alcohol"));
+                hostelTypeList.add(hType);
             }
             pr.close();
             rs.close();

@@ -12,6 +12,8 @@ public class Reservation {
     private int hotel_id;
     private int room_id;
     private int hostel_id;
+
+
     public Reservation (){
 
     }

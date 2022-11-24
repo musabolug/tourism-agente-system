@@ -108,7 +108,7 @@ public class User {
     }
 
 
-    public User getFetch(String username,String password){
+    public static User getFetch(String username, String password){
         String query = "SELECT * FROM public.user WHERE username = ? AND password = ?";
         User user = null;
 

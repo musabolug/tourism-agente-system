@@ -9,18 +9,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Search {
-    public ArrayList<Hotel> searchHotelBySeasonEnd(Date seasonStart, Date seasonEnd, String hotelAdress , String hotelName){
+    public ArrayList<Hotel> searchHotelBySeasonEnd(Date seasonStart, Date seasonEnd, String hotelAdress , String hotelName, int guestNumber){
         String query ="SELECT public.hotel.* FROM hotel_season "+
                 "LEFT JOIN public.hotel ON public.hotel.id = public.hotel_seasons.hotel_id "+
                 "WHERE public.hotel_seasons.season_start <=? "+
                 "AND public.hotel_season.season_end <=? "+
                 "AND public.hotel.adress ILIKE '%{{adress}}%' "+
-                "AND public.hot el.name ILIKE '%{{name}}%'";
+                "AND public.hotel.name ILIKE '%{{name}}%'";
 
         query = query.replace("{{name}}" ,hotelName);
         query = query.replace("{{adress}}" ,hotelAdress);
 
-        ArrayList<Hotel> resposneList = new ArrayList<>();
+        ArrayList<Hotel> responseList = new ArrayList<>();
         Hotel response;
 
         try {
@@ -36,11 +36,11 @@ public class Search {
                 String PHONE = rs.getString("phone");
                 String STAR = rs.getString("star");
                 response = new Hotel(ID,NAME,ADRESS,MAIL,PHONE,STAR);
-                resposneList.add(response);
+                responseList.add(response);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return resposneList;
+        return responseList;
     }
 }

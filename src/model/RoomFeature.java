@@ -72,7 +72,7 @@ public class RoomFeature {
         return  isFeatureDeleted;
     }
     public boolean updateFeature(int id, int roomId,String feature){
-        String query = "UPDATE public.rool_feature SET (id,room_id,feature) VALUES (?,?,?)";
+        String query = "UPDATE public.room_feature SET (id,room_id,feature) VALUES (?,?,?)";
         boolean isFeatureUpdated;
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
@@ -98,7 +98,7 @@ public class RoomFeature {
         return  isFeatureDeleted;
     }
     public RoomFeature getFetch(int roomId, String feature){
-        String query ="SELECT * FROM public.rool_feature WHERE room_id =? AND feature =?";
+        String query ="SELECT * FROM public.room_feature WHERE room_id =? AND feature =?";
         RoomFeature roomFeature = null;
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
@@ -117,7 +117,7 @@ public class RoomFeature {
         return roomFeature;
     }
     public RoomFeature getFetch(int id){
-        String query ="SELECT * FROM public.rool_feature WHERE id =? ";
+        String query ="SELECT * FROM public.room_feature WHERE id =? ";
         RoomFeature roomFeature = null;
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
